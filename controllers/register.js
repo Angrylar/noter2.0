@@ -18,8 +18,10 @@ var register = async (ctx, next) => {
     }
     async function createPerson(accNum, pass) {
         let createUserSql = `insert into user_info_tab (account_no,password) values (?,?);`;
-        let arr = [accNum, pass];
-        let dataList = await query(createUserSql);
+        let arr = [];
+        arr.push(accNum);
+        arr.push(pass);
+        let dataList = await query(createUserSql, arr);
         return dataList;
     }
     async function respData() {

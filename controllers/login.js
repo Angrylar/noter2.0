@@ -12,7 +12,10 @@ var login = async (ctx, next) => {
 
     async function selectPerson(accountNo) {
         let searchSql = `select * from user_info_tab where account_no = ?;`;
-        let arr = [accountNo];
+        let arr = [];
+        arr.push(accountNo)
+        console.log(accountNo);
+        console.log(arr)
         let dataList = await query(searchSql, arr)
         return dataList
     }
@@ -23,7 +26,7 @@ var login = async (ctx, next) => {
                 msg: '用户名不合法，请输入正确的用户名！'
             })
         } else {
-            let dataList = await selectPerson();
+            let dataList = await selectPerson(accountNo);
             console.log(dataList);
             if (dataList.length == 1) {
                 if (accountNo == dataList[0].account_no && password == dataList[0].password) {

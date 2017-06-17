@@ -18,7 +18,7 @@ var notelist = async (ctx, next) => {
     async function tottlePage(mid) {
         let tottlePageSql = `select count(1) from note_info_tab where mid = ?;`;
         let arr = [mid]
-        let data = await query(tottlePageSql);
+        let data = await query(tottlePageSql, arr);
         return data;
     }
 
