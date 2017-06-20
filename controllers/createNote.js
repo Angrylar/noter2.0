@@ -14,7 +14,7 @@ var createNote = async (ctx, next) => {
         let insertSql = `insert into note_info_tab (mid,tittle,content) values (?,?,?);`;
         console.log(insertSql);
         let arr = [a, b, c]
-        let dataList = await query(insertSql);
+        let dataList = await query(insertSql, arr);
         return dataList;
     }
     async function respData() {
