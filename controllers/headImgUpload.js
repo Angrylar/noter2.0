@@ -25,8 +25,11 @@ const uploadImg = async (ctx, next) => {
         let result = {
             success: false
         }
-        let serverFilePath = path.join(__dirname, '../file')
-
+        // 相对路径
+        // let serverFilePath = path.join(__dirname, '../file')
+        // 绝对路径
+        let newDay = new Date()
+        let serverFilePath = path.join('D:/',`../file/${newDay.getFullYear()}${newDay.getMonth()+1}${newDay.getDate()}`)
         // 上传文件事件
         result = await uploadFile(ctx, {
             fileType: 'img', // common or album

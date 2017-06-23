@@ -42,7 +42,7 @@ function uploadFile(ctx, options) {
   let busboy = new Busboy({
     headers: req.headers
   })
-
+  let newDay = new Date()
   // 获取类型
   let fileType = options.fileType || 'common'
   let filePath = path.join(options.path, fileType)
@@ -70,7 +70,7 @@ function uploadFile(ctx, options) {
         result.success = true
         result.message = '文件上传成功'
         result.data = {
-          pictureUrl: `http://10.100.50.19:3001/${fileName}`
+          pictureUrl: `http://10.100.50.19:3001/file/${newDay.getFullYear()}${newDay.getMonth()+1}${newDay.getDate()}/img/${fileName}`
         }
         console.log('文件上传成功！')
         resolve(result)
