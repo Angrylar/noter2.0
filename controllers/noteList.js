@@ -60,7 +60,7 @@ var notelist = async (ctx, next) => {
                         let tempObj = {};
                         tempObj.tittle = dataList[i].tittle;
                         let respTime = new Date(dataList[i].modify_time);
-                        tempObj.time = `${respTime.getFullYear()}-${parseInt(respTime.getMonth()) + 1}-${respTime.getDay()} `;
+                        tempObj.time = `${respTime.getFullYear()}-${parseInt(respTime.getMonth()) + 1}-${respTime.getDate()} `;
                         tempObj.nid = dataList[i].nId;
                         resultList.push(tempObj);
                     }
